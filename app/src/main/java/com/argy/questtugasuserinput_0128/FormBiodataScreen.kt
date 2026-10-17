@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -69,5 +73,19 @@ fun FormBioDataScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .height(dimensionResource(id = R.dimen.header_height))
         )
+
+        // Card Utama Mengapung
+        Card(
+            shape = RoundedCornerShape(
+                topStart = dimensionResource(id = R.dimen.card_corner_radius),
+                topEnd = dimensionResource(id = R.dimen.card_corner_radius)
+            ),
+            colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.card_bg)),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = dimensionResource(id = R.dimen.card_top_padding))
+        ) {
+
+        }
     }
 }

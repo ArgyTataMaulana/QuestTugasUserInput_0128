@@ -2,6 +2,9 @@ package com.argy.questtugasuserinput_0128
 
 import android.app.DatePickerDialog
 import android.widget.DatePicker
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -10,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringArrayResource
 import java.util.Calendar
 
@@ -43,4 +47,12 @@ fun FormBioDataScreen(modifier: Modifier = Modifier) {
         calendar.get(Calendar.MONTH),
         calendar.get(Calendar.DAY_OF_MONTH)
     )
+
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.card_bg))
+    ){
+
+    }
 }

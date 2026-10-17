@@ -9,4 +9,5 @@
     <string name="label_experience">Experience</string>
     <string name="title_skill">Pilih Skill Anda :</string>
     <string name="skill_android">Android</string>
+    <string name="skill_uiux">UI/UX</string>
 </resources>

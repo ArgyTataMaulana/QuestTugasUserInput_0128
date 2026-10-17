@@ -20,6 +20,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SegmentedButtonDefaults.Icon
@@ -183,6 +184,14 @@ fun FormBioDataScreen(modifier: Modifier = Modifier) {
                                 .matchParentSize()
                                 .clickable { datePickerDialog.show() }
                         )
+                    }
+
+                    ExposedDropdownMenuBox(
+                        expanded = isExpExpanded,
+                        onExpandedChange = { isExpExpanded = !isExpExpanded },
+                        modifier = Modifier.weight(1f)
+                    ){
+
                     }
                 }
             }

@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.widget.DatePicker
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,7 +20,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -154,6 +157,34 @@ fun FormBioDataScreen(modifier: Modifier = Modifier) {
                 )
 
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_medium)))
+
+                // Row Tanggal Lahir (DatePicker) & Experience (Dropdown)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.space_small))
+                ) {
+                    // Tgl Lahir
+                    Box(modifier = Modifier.weight(1f)) {
+                        OutlinedTextField(
+                            value = tglLahir,
+                            onValueChange = {},
+                            readOnly = true,
+                            label = { Text(stringResource(id = R.string.label_tgl_lahir)) },
+                            trailingIcon = {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.baseline_date_range_24),
+                                    contentDescription = stringResource(id = R.string.cd_calendar_icon)
+                                )
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Box(
+                            modifier = Modifier
+                                .matchParentSize()
+                                .clickable { datePickerDialog.show() }
+                        )
+                    }
+                }
             }
         }
     }

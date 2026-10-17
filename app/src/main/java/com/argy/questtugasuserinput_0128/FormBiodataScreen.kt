@@ -4,8 +4,11 @@ import android.app.DatePickerDialog
 import android.widget.DatePicker
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,6 +19,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +35,8 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -96,7 +103,57 @@ fun FormBioDataScreen(modifier: Modifier = Modifier) {
                     .padding(dimensionResource(id = R.dimen.padding_large)),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
+                // Judul & Subjudul
+                Text(
+                    text = stringResource(id = R.string.form_title),
+                    fontSize = dimensionResource(id = R.dimen.text_title).value.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = colorResource(id = R.color.purple_title)
+                )
 
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_small)))
+
+                Text(
+                    text = stringResource(id = R.string.form_subtitle),
+                    fontSize = dimensionResource(id = R.dimen.text_subtitle).value.sp,
+                    color = colorResource(id = R.color.subtitle_gray)
+                )
+
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_large)))
+
+                // Row Nama Depan & Nama Belakang
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.space_small))
+                ) {
+                    OutlinedTextField(
+                        value = namaDepan,
+                        onValueChange = { namaDepan = it },
+                        label = { Text(stringResource(id = R.string.label_nama_depan)) },
+                        modifier = Modifier.weight(1f),
+                        singleLine = true
+                    )
+                    OutlinedTextField(
+                        value = namaBelakang,
+                        onValueChange = { namaBelakang = it },
+                        label = { Text(stringResource(id = R.string.label_nama_belakang)) },
+                        modifier = Modifier.weight(1f),
+                        singleLine = true
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_medium)))
+
+                // Input Email
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text(stringResource(id = R.string.label_email)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_medium)))
             }
         }
     }

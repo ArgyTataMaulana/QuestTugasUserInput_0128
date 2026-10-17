@@ -14,4 +14,10 @@
     <string name="btn_proceed">Proceed</string>
     <string name="cd_header_bg">Header Background</string>
     <string name="cd_calendar_icon">Calendar Icon</string>
+
+    <string-array name="exp_options">
+        <item>1 Year</item>
+        <item>2 Years</item>
+        <item>3+ Years</item>
+    </string-array>
 </resources>

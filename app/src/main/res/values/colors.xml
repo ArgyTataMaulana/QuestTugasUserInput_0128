@@ -10,4 +10,5 @@
 
     <color name="purple_title">#6B42C0</color>
     <color name="subtitle_gray">#757575</color>
+    <color name="card_bg">#FFFFFF</color>
 </resources>

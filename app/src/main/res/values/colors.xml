@@ -12,4 +12,5 @@
     <color name="subtitle_gray">#757575</color>
     <color name="card_bg">#FFFFFF</color>
     <color name="btn_bg">#E0E0E0</color>
+    <color name="btn_text_color">#FFFFFF</color>
 </resources>

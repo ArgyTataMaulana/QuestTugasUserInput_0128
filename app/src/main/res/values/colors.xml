@@ -13,4 +13,5 @@
     <color name="card_bg">#FFFFFF</color>
     <color name="btn_bg">#E0E0E0</color>
     <color name="btn_text_color">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
 </resources>

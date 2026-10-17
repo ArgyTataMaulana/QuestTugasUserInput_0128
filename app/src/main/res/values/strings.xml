@@ -2,4 +2,6 @@
     <string name="app_name">QuestTugasUserInput_0128</string>
     <string name="form_title">Form Biodata</string>
     <string name="form_subtitle">Silahkan isi biodata Anda dibawah ini !!!</string>
+    <string name="label_nama_depan">Nama Depan</string>
+    <string name="label_nama_belakang">Nama Belakang</string>
 </resources>

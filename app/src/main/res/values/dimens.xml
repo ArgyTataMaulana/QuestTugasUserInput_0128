@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="header_height">260dp</dimen>
+    <dimen name="card_top_padding">210dp</dimen>
+    <dimen name="card_corner_radius">32dp</dimen>
+    <dimen name="btn_corner_radius">16dp</dimen>
+    <dimen name="btn_height">50dp</dimen>
+</resources>

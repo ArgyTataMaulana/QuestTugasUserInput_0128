@@ -2,6 +2,7 @@ package com.argy.questtugasuserinput_0128
 
 import android.app.DatePickerDialog
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,10 +18,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SegmentedButtonDefaults.Icon
@@ -191,8 +197,95 @@ fun FormBioDataScreen(modifier: Modifier = Modifier) {
                         onExpandedChange = { isExpExpanded = !isExpExpanded },
                         modifier = Modifier.weight(1f)
                     ){
-
+                        OutlinedTextField(
+                            value = selectedExp,
+                            onValueChange = {},
+                            readOnly = true,
+                            label = { Text(stringResource(id = R.string.label_experience)) },
+                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExpExpanded) },
+                            modifier = Modifier
+                                .menuAnchor()
+                                .fillMaxWidth()
+                        )
+                        ExposedDropdownMenu(
+                            expanded = isExpExpanded,
+                            onDismissRequest = { isExpExpanded = false }
+                        ) {
+                            expOptions.forEach { option ->
+                                DropdownMenuItem(
+                                    text = { Text(text = option) },
+                                    onClick = {
+                                        selectedExp = option
+                                        isExpExpanded = false
+                                    }
+                                )
+                            }
+                        }
                     }
+                }
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_large)))
+
+                // Checkbox Skills
+                Text(
+                    text = stringResource(id = R.string.title_skill),
+                    fontSize = dimensionResource(id = R.dimen.text_section).value.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Checkbox(
+                            checked = isAndroidChecked,
+                            onCheckedChange = { isAndroidChecked = it }
+                        )
+                        Text(text = stringResource(id = R.string.skill_android))
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Checkbox(
+                            checked = isUiUxChecked,
+                            onCheckedChange = { isUiUxChecked = it }
+                        )
+                        Text(text = stringResource(id = R.string.skill_uiux))
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Checkbox(
+                            checked = isWebChecked,
+                            onCheckedChange = { isWebChecked = it }
+                        )
+                        Text(text = stringResource(id = R.string.skill_web))
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_large)))
+
+                // Tombol Proceed
+                Button(
+                    onClick = {
+                        // Menampilkan pesan saat tombol diklik
+                        Toast.makeText(
+                            context,
+                            "Biodata $namaDepan $namaBelakang berhasil disimpan!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    },
+                    shape = RoundedCornerShape(dimensionResource(id = R.dimen.btn_corner_radius)),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = colorResource(id = R.color.btn_bg)
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(dimensionResource(id = R.dimen.btn_height))
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.btn_proceed),
+                        color = colorResource(id = R.color.btn_text_color),
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
         }

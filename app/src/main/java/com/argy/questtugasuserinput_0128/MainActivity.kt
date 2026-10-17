@@ -20,8 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             QuestTugasUserInput_0128Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    FormBioDataScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
